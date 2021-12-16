@@ -117,11 +117,11 @@
                                 <table class="table table-head-custom table-head-bg table-borderless table-vertical-center">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Short Url</th>
-                                            <th>Original Url</th>
-                                            <th>total clicks</th>
-                                            <th class="text-right">Action</th>
+                                            <th width="5%">#</th>
+                                            <th width="20%">Short Url</th>
+                                            <th width="50%">Original Url</th>
+                                            <th width="5%">total clicks</th>
+                                            <th width="20%" class="text-right">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
