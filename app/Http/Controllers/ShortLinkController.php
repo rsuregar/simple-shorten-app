@@ -52,6 +52,6 @@ class ShortLinkController extends Controller
         ]);
 
         $shortlink->update(['short_link' => request()->short_link]);
-        return redirect()->back()->withInput()->withErrors($validate);
+        return redirect()->back()->withErrors($validate);
     }
 }
