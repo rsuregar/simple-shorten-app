@@ -176,7 +176,7 @@
                                                                                         {{ url('/') }}/
                                                                                     </span>
                                                                                 </div>
-                                                                                <input type="text" name="short_link" value="{{ $item->short_link }}" class="form-control p-0 text-danger font-size-h5" style="font-weight: 600">
+                                                                                <input type="text" name="short_link" value="{{ $item->short_link }}" class="form-control p-0 text-danger font-size-h6" style="font-weight: 600">
                                                                                 <div class="input-group-append">
                                                                                     <button type="submit" class="btn btn-primary font-size-h6 py-3">change</button>
                                                                                 </div>
