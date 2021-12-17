@@ -142,16 +142,16 @@
                                                 <td class="align-middle">
                                                     <div class="btn-toolbar float-right" role="toolbar" aria-label="...">
                                                         <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                            {{-- <button type="button" class="btn btn-success btn-icon clipboard-button" data-clipboard-text="{{ url($item->short_link) }}"><i class="la la-copy"></i>
+                                                            <button type="button" class="btn btn-success btn-icon clipboard-button" data-clipboard-text="{{ url($item->short_link) }}"><i class="la la-copy"></i>
                                                                 <span class="clipboard-message d-none">Copied</span>
-                                                            </button> --}}
+                                                            </button>
                                                             <button type="button" class="btn btn-primary btn-icon" data-toggle="modal" data-target="#exampleModal{{ $item->id }}"><i class="la la-edit"></i></button>
-                                                            <a href="javascript:;" onclick="event.preventDefault();
+                                                            {{-- <a href="javascript:;" onclick="event.preventDefault();
                                                      document.getElementById('delete-form').submit();" class="btn btn-danger btn-icon"><i class="la la-trash"></i></a>
                                                      <form id="delete-form" action="{{ route('form.delete') }}" method="POST" style="display: none;">
                                                         @csrf
                                                         <input type="hidden" name="id" value="{{ $item->id }}">
-                                                    </form>
+                                                    </form> --}}
                                                         </div>
                                                     </div>
 
