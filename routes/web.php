@@ -19,6 +19,10 @@ Route::get('/{url?}', function ($url=null) {
     if (!is_null($url)) {
         $get = \App\Models\ShortLink::where('short_link', $url)->firstOrFail();
         $get->increment('num_of_clicks');
+        $get->clicks()->create([
+            'short_link_id' => $get->id,
+            'ip' => request()->ip()
+        ]);
         return redirect()->away($get->origin_link);
     }elseif (\Auth::check()) {
         return redirect()->route('form.create');
@@ -89,3 +93,7 @@ Route::post('auth/logout', function(){
     Auth::logout();
     return redirect('/');
 })->name('logout');
+
+Route::get('user/agent', function(){
+    return request()->userAgent();
+});
