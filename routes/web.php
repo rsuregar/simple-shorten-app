@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Http\Controllers\{ShortLinkController};
+use App\Http\Controllers\{ShortLinkController, SocialiteController};
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +40,7 @@ Route::post('auth/login', function(Request $request){
             'email'     => 'required|exists:users,email|string',
             'password'  => 'required'
         ],[
-            'email.required' => 'Harap masukkan email yang telah diberikan.',
+            'email.required' => 'Akun Anda salah. Coba ulangi lagi',
             'email.exists' => 'Akun anda tidak ditemukan dalam sistem kami.',
             'password.required' => 'Harap masukkan password yang benar.'
         ]);
@@ -60,7 +62,7 @@ Route::post('auth/register/post', function(Request $request){
 
     $emailOke = \Str::of($request->email)->explode('@')[1];
 
-    if ($emailOke == 'alakhyar.sch.id' || $emailOke == 'edu.alakhyar.sch.id') {
+    if ($emailOke == 'alakhyar.sch.id' || $emailOke == 'edu.alakhyar.sch.id' || $emailOke == 'siswa.alakhyar.sch.id') {
         $user = \App\Models\User::firstOrCreate([
             'email' => $request->email
         ],[
@@ -80,7 +82,7 @@ Route::post('auth/register/post', function(Request $request){
 Route::view('auth/register', 'auth.register')->name('register.akun');
 
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     // Route::view('app/create', 'shortlink');
     Route::get('app/create/{slug?}', [ShortLinkController::class, 'create'])->name('form.create');
     Route::post('app/store', [ShortLinkController::class, 'store'])->name('form.store');
@@ -97,3 +99,23 @@ Route::post('auth/logout', function(){
 Route::get('user/agent', function(){
     return request()->userAgent();
 });
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+Route::get('auth/google', [SocialiteController::class, 'redirectToGoogle'])->name('google.auth');
+Route::get('auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
