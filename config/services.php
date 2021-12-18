@@ -31,9 +31,9 @@ return [
     ],
 
     'google' => [
-        'client_id' => '280963209085-3o0ul7g0t5ibuit3ti696nvm02votp4r.apps.googleusercontent.com',
-        'client_secret' => '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',
-        'redirect' => 'https://s.alakhyar.app/auth/google/callback',
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT'),
     ],
 
 ];

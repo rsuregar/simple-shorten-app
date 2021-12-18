@@ -41,12 +41,14 @@ class SocialiteController extends Controller
                     break;
 
                 default:
-                    return redirect()->back()->with(['msg' => 'Email yang Anda gunakan diluar dari ALAKHYAR ISLAMIC SCHOOL. Gunakan email ALAKHYAR.']);
+                // dd("ok");
+                    return redirect('/')->with(['msg' => 'Email yang Anda gunakan diluar dari ALAKHYAR ISLAMIC SCHOOL. Gunakan email ALAKHYAR.']);
                     break;
             }
 
         } catch (Exception $e) {
-            return redirect()->back()->with(['msg' => 'Email yang Anda gunakan diluar dari ALAKHYAR ISLAMIC SCHOOL. Gunakan email ALAKHYAR.']);
+            // dd("wkwkw");
+            return redirect('/')->with(['msg' => 'Email yang Anda gunakan diluar dari ALAKHYAR ISLAMIC SCHOOL. Gunakan email ALAKHYAR.']);
         }
     }
 }
