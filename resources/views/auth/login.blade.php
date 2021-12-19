@@ -101,7 +101,7 @@
 								<div class="pb-5 pb-lg-0">
                                     {{-- <button type="submit" id="kt_login_signin_submit"
                                         class="px-8 py-4 my-3 mr-3 btn btn-primary font-weight-bolder font-size-h6">Sign In</button> --}}
-                                    <a href="{{ route('login.sso') }}" class="px-8 py-4 my-3 btn btn-light-dark btn-block font-weight-bolder font-size-lg">
+                                    {{-- <a href="{{ route('login.sso') }}" class="px-8 py-4 my-3 btn btn-light-dark btn-block font-weight-bolder font-size-lg"> --}}
                                         <span class="svg-icon"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Navigation\Sign-in.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"/>
