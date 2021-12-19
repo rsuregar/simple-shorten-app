@@ -93,7 +93,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::post('auth/logout', function(){
     Auth::logout();
-    return redirect()->away('https://sso.alakhyar.app/apps');
+    return redirect('/');
+    // return redirect()->away('https://sso.alakhyar.app/apps');
 })->name('logout');
 
 Route::get('user/agent', function(){
