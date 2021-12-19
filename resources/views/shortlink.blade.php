@@ -53,7 +53,7 @@
                             <img src="{{ asset('logo.png') }}" height="70" alt="">
                         </h3>
                         <div class="d-flex">
-                            <a href="https://ppdb.alakhyar.sch.id" class="font-size-h6 font-weight-bold">PPDB ALKHYAR</a>
+                            {{-- <a href="https://ppdb.alakhyar.sch.id" class="font-size-h6 font-weight-bold">PPDB ALKHYAR</a> --}}
                             <a href="javascript:;" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="text-danger font-weight-bold ml-8">LOGOUT</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -63,7 +63,7 @@
                     <!--end::Topbar-->
                     <div class="d-flex align-items-stretch text-center flex-column py-40">
                         <!--begin::Heading-->
-                        {{-- <h1 class="text-dark font-weight-bolder mb-8">Paste link here</h1> --}}
+                        <h5 class="text-dark font-weight-bolder mb-8">Hi, {{ auth()->user()->email }}</h5>
                         <!--end::Heading-->
                         <!--begin::Form-->
                         <form class="d-flex position-relative w-75 m-auto" action="{{ route('form.store') }}" method="POST">
