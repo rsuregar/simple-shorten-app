@@ -119,3 +119,6 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 Route::get('auth/google', [SocialiteController::class, 'redirectToGoogle'])->name('google.auth');
 Route::get('auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
+
+
+require __DIR__.'/sso.php';
